@@ -43,6 +43,17 @@ class Play extends Phaser.Scene {
                 zeroPad: 3
             })
         })
+        this.anims.create({
+            key: 'rolling',
+            frameRate: 12,
+            frames: this.anims.generateFrameNames('runner_atlas', {
+                prefix: 'roll',
+                start: 0,
+                end: 6,
+                suffix: '',
+                zeroPad: 3
+            })
+        })
 
         // player sprite
         this.botRunner = new Guy(this, tilesize*2, centerY, 'runner_atlas', 'run000');
