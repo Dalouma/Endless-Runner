@@ -4,9 +4,10 @@ class Play extends Phaser.Scene {
     }
 
     create() {
-        // settings
+        // settings and vars
         // this.physics.world.gravity.y = 2600;
         this.obstacleSpeed = -490;
+        score = 0;
 
         // tile group
         this.botGround = this.add.group({
@@ -82,6 +83,9 @@ class Play extends Phaser.Scene {
             this.addObstacle(); 
         });
 
+        // display score
+        this.scoreText = this.add.text(centerX, centerY, `Score: ${score}`).setOrigin(0.5);
+
         // define keys
         this.keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         this.keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
@@ -106,6 +110,11 @@ class Play extends Phaser.Scene {
 
         // check collisions
         this.physics.world.collide(this.botRunner, this.obstacleGroup, this.guyCrash, null, this);
+    }
+
+    updateScore(points) {
+        score += points;
+        this.scoreText.text = `Score: ${score}`;
     }
 
     guyCrash() {

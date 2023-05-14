@@ -43,3 +43,6 @@ let h = game.config.height;
 let tilesize = 64;
 let SCROLL_SPEED = 3;
 let SCALE = 1;
+
+// keep score
+let score;

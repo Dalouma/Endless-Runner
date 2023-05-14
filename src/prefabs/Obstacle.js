@@ -25,6 +25,9 @@ class Obstacle extends Phaser.Physics.Arcade.Sprite {
 
         // destroy paddle if it reaches the left edge of the screen
         if(this.x < -this.width) {
+            if(this.parentScene.botRunner.isAlive){
+                this.parentScene.updateScore(100);
+            }
             this.destroy();
         }
     }
