@@ -4,9 +4,32 @@ class GameOver extends Phaser.Scene {
     }
 
     create() {
-        this.add.text(centerX, centerY, "GAME OVER").setOrigin(0.5);
-        this.add.text(centerX, centerY + 50, `Final Score: ${score}`).setOrigin(0.5);
-        this.add.text(centerX, centerY + 100, "press SPACE to play again").setOrigin(0.5);
+        // end screen text config
+        let endConfig= {
+            // fontFamily: "Courier",
+            fontSize: "28px",
+            //backgroundColor: "#F3B141",
+            // backgroundColor: "#000",
+            //color: "#843605",
+            // color: "#FFFFFF",
+            // align: "right",
+            // padding: {
+            //     top: 5,
+            //     bottom: 5,
+            // },
+            // fixedWidth: 0
+        };
+        
+        this.add.text(centerX, 50, "GAME OVER", endConfig).setOrigin(0.5);
+        this.add.text(centerX, 100, `Final Score: ${score}`, endConfig).setOrigin(0.5);
+        this.add.text(centerX, game.config.height - 50, "press SPACE to play again", endConfig).setOrigin(0.5);
+
+        // credits
+        this.add.text(centerX, centerY - 50, "Credits:", endConfig).setOrigin(0.5);
+        endConfig.fontSize = "18px";
+        this.add.text(centerX, centerY - 20, "Music by lucadialessandro from Pixabay").setOrigin(0.5);
+        this.add.text(centerX, centerY, "Audio(freesound.org):").setOrigin(0.5);
+        this.add.text(centerX, centerY + 20, "\"HighPixel\", \"filippys\", \"InspectorJ\"").setOrigin(0.5);
 
         // define keys
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
