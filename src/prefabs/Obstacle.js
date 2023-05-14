@@ -1,6 +1,6 @@
 class Obstacle extends Phaser.Physics.Arcade.Sprite {
     constructor(scene, velocity, height){
-        super(scene, game.config.width + tilesize, game.config.height - tilesize * height, 'tile');
+        super(scene, game.config.width + tilesize, game.config.height - tilesize * height, 'fireball');
 
         // scene context
         this.parentScene = scene;
@@ -10,9 +10,13 @@ class Obstacle extends Phaser.Physics.Arcade.Sprite {
         this.parentScene.add.existing(this);            // add to existing scene, displayList, updateList
         this.parentScene.physics.add.existing(this);    // add to physics system
         this.setVelocityX(velocity);                    // make it go!
-        this.setImmovable();                  
+        this.setImmovable();
+        this.body.setCircle(this.width/2);              
         this.body.onCollide = true;
         this.newObstacle = true;                         // custom property to control barrier spawning
+
+        // play animation
+        this.anims.play('fireballMove');
     }
 
     update() {

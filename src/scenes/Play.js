@@ -24,7 +24,7 @@ class Play extends Phaser.Scene {
         // ground tile overlays
         this.botGroundScroll = this.add.tileSprite(0, game.config.height - tilesize, game.config.width, tilesize, 'ground').setScale(SCALE).setOrigin(0);  
 
-        // animation setup
+        // player animation setup
         this.anims.create({
             key: 'running',
             frameRate: 12,
@@ -59,6 +59,13 @@ class Play extends Phaser.Scene {
                 zeroPad: 3
             })
         })
+        // fireball animation setup
+        this.anims.create({
+            key: 'fireballMove',
+            frames: this.anims.generateFrameNames('fireball', {start: 0, end: 1, first: 0}),
+            frameRate: 10,
+            repeat: -1
+        })
 
         // player sprite
         this.botRunner = new Guy(this, tilesize*2, centerY, 'runner_atlas', 'run000');
@@ -84,7 +91,7 @@ class Play extends Phaser.Scene {
         });
 
         // display score
-        this.scoreText = this.add.text(centerX, centerY, `Score: ${score}`).setOrigin(0.5);
+        this.scoreText = this.add.text(game.config.width - 50, 20, `Score: ${score}`).setOrigin(1,0);
 
         // define keys
         this.keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
