@@ -3,11 +3,16 @@
     Neon Runaway
     Endless Runner Project
     Most code adapted from Nathan Altice github projects
+    Hours spent: ~25hrs
 
     Credits:
-    https://zegley.itch.io/2d-platformermetroidvania-asset-pack
+    Character sprite template
+        https://zegley.itch.io/2d-platformermetroidvania-asset-pack
         I drew over this sprite sheet to create my own character
         so technically it's my own art (please don't doc me).
+    Music by lucadialessandro from Pixabay
+        https://pixabay.com/music/search/arcade/
+    
 */
 
 // honesty is the best policy

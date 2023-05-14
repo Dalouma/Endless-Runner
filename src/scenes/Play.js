@@ -9,6 +9,13 @@ class Play extends Phaser.Scene {
         this.obstacleSpeed = -490;
         score = 0;
 
+        // bgm
+        this.bgm = this.sound.add('music', {
+            volume: 0.1,
+            loop: true
+        })
+        this.bgm.play();
+
         // tile group
         this.botGround = this.add.group({
             onCollide: true
@@ -129,6 +136,7 @@ class Play extends Phaser.Scene {
     guyCrash() {
         this.botRunner.isAlive = false;
         this.botRunner.destroy();
+        this.bgm.stop();
 
         // switch states after timer expires
         this.time.delayedCall(2000, () => { this.scene.start('gameOverScene'); });
