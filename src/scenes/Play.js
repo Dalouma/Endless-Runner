@@ -9,16 +9,19 @@ class Play extends Phaser.Scene {
         this.obstacleSpeed = -490;
 
         // tile group
-        this.botGround = this.add.group();
+        this.botGround = this.add.group({
+            onCollide: true
+        });
         for(let i = 0; i < this.game.config.width; i+= tilesize){
             let groundTile = this.physics.add.sprite(i, game.config.height - tilesize, 'tile').setScale(SCALE).setOrigin(0);
             groundTile.body.immovable = true;
             groundTile.body.allowGravity = false;
+            groundTile.body.onCollide = true;
             this.botGround.add(groundTile);
         }
 
         // ground tile overlays
-        this.botGroundScroll = this.add.tileSprite(0, game.config.height - tilesize, game.config.width, tilesize, 'ground').setScale(SCALE).setOrigin(0);  
+        // this.botGroundScroll = this.add.tileSprite(0, game.config.height - tilesize, game.config.width, tilesize, 'ground').setScale(SCALE).setOrigin(0);  
 
         // animation setup
         this.anims.create({
@@ -35,7 +38,7 @@ class Play extends Phaser.Scene {
         });
         this.anims.create({
             key: 'jumping',
-            frameRate: 3,
+            frameRate: 4,
             frames: this.anims.generateFrameNames('runner_atlas', {
                 prefix: 'jump',
                 start: 0,
@@ -92,7 +95,7 @@ class Play extends Phaser.Scene {
     }
 
     update() {
-        this.botGroundScroll.tilePositionX += SCROLL_SPEED;
+        // this.botGroundScroll.tilePositionX += SCROLL_SPEED;
         this.botRunner.update();
         this.runnerFSM.step();
 

@@ -34,7 +34,6 @@ class RunState extends State {
         const keyDOWN = scene.keyDOWN;
 
         if(Phaser.Input.Keyboard.JustDown(keyUP) && guy.isGrounded){
-            guy.body.setVelocityY(guy.jumpVelocity);
             this.stateMachine.transition('jump');
             return;
         }
@@ -47,16 +46,16 @@ class RunState extends State {
 
 class JumpState extends State {
     enter(scene, guy){
+        guy.body.setVelocityY(guy.jumpVelocity);
         guy.anims.play('jumping');
+        guy.once('animationcomplete', () => {
+            this.stateMachine.transition('run');
+        })
     }
 
     execute(scene, guy){
         const keyDOWN = scene.keyDOWN;
 
-        if(guy.isGrounded){
-            this.stateMachine.transition('run');
-            return;
-        }
         if(Phaser.Input.Keyboard.JustDown(keyDOWN)){
             this.stateMachine.transition('roll');
             return;
