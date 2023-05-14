@@ -5,6 +5,25 @@
     Most code adapted from Nathan Altice github projects
     Hours spent: ~25hrs
 
+    // CREATIVE TILT
+    Programming TECH
+        I implemented a dive mechanic that allow the player to fall faster
+        while in the air. I did this along with Nathan's FSM implementation on
+        GitHub. It's a simple mechanic, but it feels good and I'm proud of it.
+    Visual Style:
+        I did pixel art for the first time for this project. I created the 
+        fireball animation that the player has to jump over. It kind of looks 
+        like a jellyfish according to one friend and it only has two frames, 
+        but I'm proud of it nonetheless.
+
+        I also "created" the character animations. It wasn't entirely my own 
+        because I used a template that I drew over using adobe photoshop. However, 
+        I did work very hard on it and I'm happy with how it turned out.
+
+        I almost forgot about the tilesprite. That was all me too. I used this website 
+        called pixilart.com. I was about to buy Asesprite, but I'm not too sure if I 
+        was going to continue with pixel art, but after this project, I might.
+
     Credits:
     Character sprite template
         https://zegley.itch.io/2d-platformermetroidvania-asset-pack
