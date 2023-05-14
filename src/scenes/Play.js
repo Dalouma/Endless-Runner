@@ -21,7 +21,7 @@ class Play extends Phaser.Scene {
         }
 
         // ground tile overlays
-        // this.botGroundScroll = this.add.tileSprite(0, game.config.height - tilesize, game.config.width, tilesize, 'ground').setScale(SCALE).setOrigin(0);  
+        this.botGroundScroll = this.add.tileSprite(0, game.config.height - tilesize, game.config.width, tilesize, 'ground').setScale(SCALE).setOrigin(0);  
 
         // animation setup
         this.anims.create({
@@ -95,10 +95,21 @@ class Play extends Phaser.Scene {
     }
 
     update() {
-        // this.botGroundScroll.tilePositionX += SCROLL_SPEED;
-        this.botRunner.update();
+        // scroll ground tiles
+        this.botGroundScroll.tilePositionX += SCROLL_SPEED;
+        // update bot runner
+        if(this.botRunner.isAlive){
+            this.botRunner.update();
+        }
+        // FSM update
         this.runnerFSM.step();
 
+        // check collisions
+        this.physics.world.collide(this.botRunner, this.obstacleGroup, this.guyCrash, null, this);
     }
 
+    guyCrash() {
+        this.botRunner.isAlive = false;
+        this.botRunner.destroy();
+    }
 }

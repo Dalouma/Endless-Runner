@@ -15,6 +15,7 @@ class Guy extends Phaser.Physics.Arcade.Sprite {
         // properties
         this.jumpVelocity = -950;
         this.diveVelocity = 2600;
+        this.isAlive = true;
         // this.isGrounded = this.body.touching.down;
     }
 
