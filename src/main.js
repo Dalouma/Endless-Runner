@@ -12,7 +12,10 @@
         so technically it's my own art (please don't doc me).
     Music by lucadialessandro from Pixabay
         https://pixabay.com/music/search/arcade/
-    
+    SFX
+        Fireball: https://freesound.org/people/HighPixel/sounds/431174/
+        Jump: https://freesound.org/people/filippys/sounds/656905/
+        Dive: https://freesound.org/people/InspectorJ/sounds/394433/
 */
 
 // honesty is the best policy

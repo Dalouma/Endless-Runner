@@ -17,6 +17,7 @@ class Obstacle extends Phaser.Physics.Arcade.Sprite {
 
         // play animation
         this.anims.play('fireballMove');
+        this.parentScene.sound.play('fire_woosh', {volume: 0.3});
     }
 
     update() {

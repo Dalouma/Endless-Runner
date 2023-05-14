@@ -48,6 +48,7 @@ class RunState extends State {
 class JumpState extends State {
     enter(scene, guy){
         guy.body.setVelocityY(guy.jumpVelocity);
+        scene.sound.play('jump');
         guy.anims.play('jumping');
         guy.once('animationcomplete', () => {
             this.stateMachine.transition('run');
@@ -67,6 +68,7 @@ class JumpState extends State {
 class RollState extends State {
     enter(scene, guy){
         guy.setVelocityY(guy.diveVelocity);
+        scene.sound.play('diveRoll');
         guy.anims.play('rolling');
         guy.once('animationcomplete', () => {
             this.stateMachine.transition('run');

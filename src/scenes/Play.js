@@ -11,7 +11,7 @@ class Play extends Phaser.Scene {
 
         // bgm
         this.bgm = this.sound.add('music', {
-            volume: 0.1,
+            volume: 0.15,
             loop: true
         })
         this.bgm.play();

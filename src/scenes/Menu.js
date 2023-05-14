@@ -13,6 +13,11 @@ class Menu extends Phaser.Scene {
 
         // load bgm
         this.load.audio('music', 'runner bgm.mp3');
+
+        // load sfx
+        this.load.audio('fire_woosh', 'fireball.wav');
+        this.load.audio('jump', 'jump.mp3');
+        this.load.audio('diveRoll', 'diveRoll.mp3');
     }
 
     create() {
