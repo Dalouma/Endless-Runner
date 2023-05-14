@@ -4,7 +4,7 @@ class Guy extends Phaser.Physics.Arcade.Sprite {
         scene.add.existing(this);
         scene.physics.add.existing(this);
 
-        this.body.setSize(64,64);
+        this.body.setSize(50,64);
         this.body.setGravityY(2600);
         this.body.onCollide = true;
 
