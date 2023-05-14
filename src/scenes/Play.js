@@ -5,7 +5,8 @@ class Play extends Phaser.Scene {
 
     create() {
         // settings
-        this.physics.world.gravity.y = 2600;
+        // this.physics.world.gravity.y = 2600;
+        this.obstacleSpeed = -490;
 
         // tile group
         this.botGround = this.add.group();
@@ -68,10 +69,26 @@ class Play extends Phaser.Scene {
         // add physics collider
         this.physics.add.collider(this.botRunner, this.botGround);
 
+        // obstacle group setup
+        this.obstacleGroup = this.add.group({
+            runChildUpdate: true
+        });
+
+        // spawn after delay
+        this.time.delayedCall(2500, () => { 
+            this.addObstacle(); 
+        });
+
         // define keys
         this.keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         this.keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
 
+    }
+
+    addObstacle(){
+        let height = Phaser.Math.Between(1,2);
+        let obstacle = new Obstacle(this, this.obstacleSpeed, height);
+        this.obstacleGroup.add(obstacle);
     }
 
     update() {

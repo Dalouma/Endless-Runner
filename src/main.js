@@ -1,3 +1,12 @@
+/*
+    David Amaya
+    Split Runner
+    Endless Runner Project
+    Most code adapted from Nathan Altice github projects
+
+*/
+
+// honesty is the best policy
 'use strict';
 
 let config = {
@@ -32,5 +41,5 @@ let centerY = game.config.height/2;
 let w = game.config.width;
 let h = game.config.height;
 let tilesize = 64;
-let SCROLL_SPEED = 2;
+let SCROLL_SPEED = 3;
 let SCALE = 1;
