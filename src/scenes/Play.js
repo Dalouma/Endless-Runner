@@ -111,9 +111,11 @@ class Play extends Phaser.Scene {
         // update bot runner
         if(this.botRunner.isAlive){
             this.botRunner.update();
+            // FSM update
+            this.runnerFSM.step();
         }
-        // FSM update
-        this.runnerFSM.step();
+        
+        
 
         // check collisions
         this.physics.world.collide(this.botRunner, this.obstacleGroup, this.guyCrash, null, this);

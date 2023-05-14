@@ -5,7 +5,7 @@ class Menu extends Phaser.Scene {
 
     preload() {
         this.load.path = './assets/';
-        this.load.atlas('runner_atlas', 'placeholder/runner atlas.png', 'placeholder/runner atlas.json');
+        this.load.atlas('runner_atlas', 'runner atlas.png', 'runner atlas.json');
         //this.load.spritesheet('guyRun', 'run cycle 96x96.png', {frameWidth: 96, frameHeight: 96});
         this.load.image('tile', 'tile.png');
         this.load.image('ground', 'ground.png');

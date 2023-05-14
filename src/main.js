@@ -4,6 +4,10 @@
     Endless Runner Project
     Most code adapted from Nathan Altice github projects
 
+    Credits:
+    https://zegley.itch.io/2d-platformermetroidvania-asset-pack
+        I drew over this sprite sheet to create my own character
+        so technically it's my own art (please don't doc me).
 */
 
 // honesty is the best policy
