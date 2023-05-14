@@ -111,5 +111,8 @@ class Play extends Phaser.Scene {
     guyCrash() {
         this.botRunner.isAlive = false;
         this.botRunner.destroy();
+
+        // switch states after timer expires
+        this.time.delayedCall(2000, () => { this.scene.start('gameOverScene'); });
     }
 }
