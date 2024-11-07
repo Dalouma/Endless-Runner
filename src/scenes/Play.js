@@ -6,7 +6,10 @@ class Play extends Phaser.Scene {
     create() {
         // settings and vars
         // this.physics.world.gravity.y = 2600;
-        this.obstacleSpeed = -490;
+        this.obstaclesFired = 0;
+        this.obstacleSpeed = -500;
+        this.maxSpeed = -1000;
+        this.delayTime = 2500;
         score = 0;
 
         // bgm
@@ -93,8 +96,8 @@ class Play extends Phaser.Scene {
         });
 
         // spawn after delay
-        this.time.delayedCall(2500, () => { 
-            this.addObstacle(); 
+        this.time.delayedCall(this.delayTime, () => { 
+            this.addObstacle();
         });
 
         // display score
@@ -107,9 +110,15 @@ class Play extends Phaser.Scene {
     }
 
     addObstacle(){
+        if (this.obstacleSpeed > this.maxSpeed){
+            this.obstacleSpeed = this.obstaclesFired*(-10) - 500;
+        }
+
         let height = Phaser.Math.Between(1,2);
-        let obstacle = new Obstacle(this, this.obstacleSpeed, height);
+        let obstacle = new Obstacle(this, this.obstacleSpeed, height+0.5);
         this.obstacleGroup.add(obstacle);
+
+        this.obstaclesFired++;
     }
 
     update() {
